@@ -25,6 +25,7 @@ class SearchResult extends HTMLElement {
       </div>
     
       <div class="search-result__contributors">
+        <span class="search-result__contributors-title">Top Contributors</span>
         <ul class="sr-contributors__list">
           <li class="sr-contributors__list-item"><span>Lorem ipsum dolor sit amet</span></li>
           <li class="sr-contributors__list-item"><span>Lorem ipsum dolor sit amet</span></li>
