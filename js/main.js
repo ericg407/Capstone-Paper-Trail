@@ -1,6 +1,7 @@
 import '../css/style.css';
 import './components/header.js';
 import './components/button.js';
+import './components/search-result.js';
 import { doc } from 'prettier';
 
 
@@ -128,4 +129,4 @@ getData()
     .catch(error => {
         console.log('error with getData response!');
         console.error(error);
-    })
+    });
