@@ -12,6 +12,12 @@ class SearchResult extends HTMLElement {
     const state = this.getAttribute('result-state');
     const party = this.getAttribute('result-party');
 
+    const contrib1 = this.getAttribute('contrib1');
+    const contrib2 = this.getAttribute('contrib2');
+    const contrib3 = this.getAttribute('contrib3');
+
+    const link = this.getAttribute('result-link');
+
     this.innerHTML = `
     <div class="search-result">
       <div class="search-result__info">
@@ -27,10 +33,14 @@ class SearchResult extends HTMLElement {
       <div class="search-result__contributors">
         <span class="search-result__contributors-title">Top Contributors</span>
         <ul class="sr-contributors__list">
-          <li class="sr-contributors__list-item"><span>Lorem ipsum dolor sit amet</span></li>
-          <li class="sr-contributors__list-item"><span>Lorem ipsum dolor sit amet</span></li>
-          <li class="sr-contributors__list-item"><span>Lorem ipsum dolor sit amet</span></li>
+          <li class="sr-contributors__list-item">${contrib1}</li>
+          <li class="sr-contributors__list-item">${contrib2}</li>
+          <li class="sr-contributors__list-item">${contrib3}</li>
         </ul>
+      </div>
+
+      <div class="search-result__btn">
+        <custom-btn bLink="${link}" bText="See More"></custom-btn>
       </div>
     </div>
     `;

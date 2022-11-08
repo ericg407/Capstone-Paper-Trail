@@ -4,12 +4,14 @@
   overflow: hidden;
 
   width: 400px;
-  height: 480px;
+  height: 420px;
+
+  padding-bottom: 16px;
 
   position: relative;
 
   border: solid 2px #1670ba;
-  border-radius: 4px;
+  border-radius: 8px;
 
   background-color: #eee;
 }
@@ -103,4 +105,12 @@
 
 .sr-contributors__list-item {
   font-size: 1.2em;
+}
+
+.search-result__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
 }

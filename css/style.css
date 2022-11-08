@@ -17,7 +17,6 @@
 
 .page-section {
   width: 100vw;
-  height: 92vh;
 }
 
 .page-btn {
@@ -25,15 +24,21 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
   width: 120px;
   height: 40px;
+
   position: relative;
   overflow: hidden;
+
   border: none;
   border-radius: 6px;
+
   background-color: #1670ba;
   color: white;
+
   cursor: pointer;
+
   text-decoration: none;
   font-size: 1em;
 }
@@ -73,13 +78,36 @@
 
 .hero-search__input {
   height: 36px;
+
   padding: 0px 8px;
+
   border: 2px solid #1670ba;
   border-radius: 6px;
 }
 
 .hero-search__input:focus {
   outline: none;
+}
+
+#result-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+
+  height: 600px;
+}
+
+.result-grid__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #eee;
 }
 
 /* img {
