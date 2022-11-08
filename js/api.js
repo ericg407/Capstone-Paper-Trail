@@ -3,15 +3,19 @@ const apiKey = import.meta.env.VITE_API_KEY; //API Key hidden
 // candidate IDs to test: N00007360  N00035278
 // candidate image url: https://cdn1.opensecrets.org/congress-members/photos/${cID}.jpg
 
-const cID = 'N00007360';
-const summaryURL = `https://www.opensecrets.org/api/?method=candSummary&cid=${cID}&cycle=2022&apikey=${apiKey}&output=json`;
-const contribURL = `https://www.opensecrets.org/api/?method=candContrib&cid=${cID}&cycle=2022&apikey=${apiKey}&output=json`;
+// const cID = 'N00007360';
+// const summaryURL = `https://www.opensecrets.org/api/?method=candSummary&cid=${cID}&cycle=2022&apikey=${apiKey}&output=json`;
+// const contribURL = `https://www.opensecrets.org/api/?method=candContrib&cid=${cID}&cycle=2022&apikey=${apiKey}&output=json`;
 
-export async function getData() {
+export async function getData(candCID) {
+  const summaryURL = `https://www.opensecrets.org/api/?method=candSummary&cid=${candCID}&cycle=2022&apikey=${apiKey}&output=json`;
+
   const summaryResponse = await fetch(summaryURL);
   const summaryData = await summaryResponse.json();
   const summaryDataFormat = summaryData.response.summary['@attributes'];
   // summaryDataFormat output: cand_name, cid, cycle, state, party, chamber, first_elected, next_election, spent, cash_on_hand, debt, origin, source, last_updated, total
+
+  const contribURL = `https://www.opensecrets.org/api/?method=candContrib&cid=${candCID}&cycle=2022&apikey=${apiKey}&output=json`;
 
   const contribResponse = await fetch(contribURL);
   const contribData = await contribResponse.json();

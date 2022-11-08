@@ -4,11 +4,17 @@ import './components/button.js';
 import './components/search-result.js';
 
 import { getData } from './api.js';
+import { searchCName } from './getLegislator.js';
 
-const candidateSearchBtn = document.getElementById('search_btn');
+const candidateSearchBtn = document.getElementById('hero-search_btn');
 
 candidateSearchBtn.addEventListener('click', (evt) => {
   evt.preventDefault();
 
-  getData();
+  var searchNameInput = document.getElementById('hero-search__name').value;
+  console.log(searchNameInput);
+
+  var cid = searchCName();
+
+  getData(cid);
 });
