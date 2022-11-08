@@ -1,7 +1,7 @@
-import '../css/style.css';
-import './components/header.js';
-import './components/button.js';
-import { doc } from 'prettier';
+// import '../css/style.css';
+// import './components/header.js';
+// import './components/button.js';
+// import { doc } from 'prettier';
 // require('dotenv').config();
 
 const apiKey = import.meta.env.VITE_API_KEY; //process.env.API_KEY; //API Key hidden  3656e5336f1239be4dcc23527aa19e6a
@@ -9,23 +9,23 @@ const apiKey = import.meta.env.VITE_API_KEY; //process.env.API_KEY; //API Key hi
 // ****** user search input ******
 
 // const cName = document.getElementById('Search-btn');
-let searchIndexUserIndexLName = '';
-let userIndexFLName;
-let userIndexLName;
-let cID = 'N00041843'; //searchIndexUserIndexLName; //'N00035278'; // candidate or legislator CID to reference data
-const year = '2022'; // cycle or the time period
+// let searchIndexUserIndexLName = '';
+// let userIndexFLName;
+// let userIndexLName;
+// let cID = 'N00041843'; //searchIndexUserIndexLName; //'N00035278'; // candidate or legislator CID to reference data
+// const year = '2022'; // cycle or the time period
 // var searchNameIn = document.getElementById('searchName').value;
 // let searchInputCFLName = ''; //'Andy Kim';
 // let searchInputCLName = 'Kim'; //searchNameIn; //'Malinowski';
 
 // ******API URL from where data is retrieved  ******
-const legislatorURL = `http://www.opensecrets.org/api/?method=getLegislators&id=NJ&apikey=${apiKey}&output=json`;
+// const legislatorURL = `http://www.opensecrets.org/api/?method=getLegislators&id=NJ&apikey=${apiKey}&output=json`;
 // const URL = `https://www.opensecrets.org/api/?method=candSummary&cid=${cID}&cycle=2022&apikey=${apiKey}&output=json`;
 //const URL = 'https://www.opensecrets.org/api/?method=candSummary&cid=N00007360&cycle=2022&apikey=3656e5336f1239be4dcc23527aa19e6a&output=json';
 // const sourceURL = `https://www.opensecrets.org/members-of-congress/summary?cid=${cID}&cycle=${year}&output=json`;
 // const cImageURL = `https://cdn1.opensecrets.org/congress-members/photos/${cID}.jpg`;
 
-getLegislators();
+// getLegislators();
 
 //****** search button on HTML to call the funtion ******
 // document.getElementById('search-btn').addEventListener('click', (e) => {
@@ -38,10 +38,11 @@ getLegislators();
 //   getData(cID); //pulls up canidate data
 // });
 
-let legArray = []; // Array containing all the members of the legislator
+// let legArray = []; // Array containing all the members of the legislator
 
 // ****** Fetch the list of legislators from the API list for the 117th Congressional legislators ******
-async function getLegislators() {
+export async function getLegislators() {
+  let legArray = [];
   // ******API URL from where data is retrieved  ******
   const legislatorURL = `http://www.opensecrets.org/api/?method=getLegislators&id=NJ&apikey=${apiKey}&output=json`;
   const response = await fetch(legislatorURL);

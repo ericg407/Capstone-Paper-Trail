@@ -4,7 +4,9 @@ import './components/button.js';
 import './components/search-result.js';
 
 import { getData } from './api.js';
-import { searchCName } from './getLegislator.js';
+import { getLegislators, searchCName } from './getLegislator.js';
+
+getLegislators();
 
 const candidateSearchBtn = document.getElementById('hero-search_btn');
 
