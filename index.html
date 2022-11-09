@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paper Trail</title>
+    <title>Vite App</title>
   </head>
   <body>
     <custom-header></custom-header>
@@ -14,33 +14,27 @@
         <div class="hero-container">
           <div class="hero-wrap">
             <div class="hero-title">
-              <h1 class="page-h1 hero-h1">Who Backs Your Elect?</h1>
+              <h1 class="page-h1 hero-h1">Who Backs Your Elects?</h1>
             </div>
 
             <div class="hero-description">
               <p class="page-p hero-p">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                nec odio. Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit. Integer nec odio.
+               Enter your address to <span class="important-text">find and contact your federal</span> , state, county and local representatives.
               </p>
             </div>
 
+            <custom-address-form></custom-address-form>
             <div class="hero-search">
-              <input id="searchName" type="text" class="hero-search__input" />
               <input
-                id="search_btn"
                 type="button"
                 value="Search"
-                class="page-btn hero-search_btn"
+                class="page-btn hero-search__btn"
               />
             </div>
           </div>
         </div>
       </section>
-
-      <div id="result-grid"></div>
     </div>
+    <script type="module" src="/js/main.js"></script>
   </body>
-
-  <script type="module" src="./js/main.js"></script>
 </html>
