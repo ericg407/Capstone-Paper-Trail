@@ -4,18 +4,20 @@
 // import { doc } from 'prettier';
 // require('dotenv').config();
 
-const apiKey = import.meta.env.VITE_API_KEY; //process.env.API_KEY; //API Key hidden  3656e5336f1239be4dcc23527aa19e6a
+const apiKey =
+    import.meta.env.VITE_API_KEY; //process.env.API_KEY; //API Key hidden  3656e5336f1239be4dcc23527aa19e6a
 
 // ****** user search input ******
-
+let legArray = [];
 // const cName = document.getElementById('Search-btn');
 // let searchIndexUserIndexLName = '';
-// let userIndexFLName;
+let userIndexFLName;
 // let userIndexLName;
 // let cID = 'N00041843'; //searchIndexUserIndexLName; //'N00035278'; // candidate or legislator CID to reference data
 // const year = '2022'; // cycle or the time period
 // var searchNameIn = document.getElementById('searchName').value;
-// let searchInputCFLName = ''; //'Andy Kim';
+var searchNameIn = document.getElementById('hero-search__name').value;
+let searchInputCFLName = ''; //'Andy Kim';
 // let searchInputCLName = 'Kim'; //searchNameIn; //'Malinowski';
 
 // ******API URL from where data is retrieved  ******
@@ -42,32 +44,32 @@ const apiKey = import.meta.env.VITE_API_KEY; //process.env.API_KEY; //API Key hi
 
 // ****** Fetch the list of legislators from the API list for the 117th Congressional legislators ******
 export async function getLegislators() {
-  let legArray = [];
-  // ******API URL from where data is retrieved  ******
-  const legislatorURL = `http://www.opensecrets.org/api/?method=getLegislators&id=NJ&apikey=${apiKey}&output=json`;
-  const response = await fetch(legislatorURL);
-  const data = await response.json();
-  const dataFormatOld = data.response.legislator;
-  // console.log(dataFormatOld);
 
-  // ****** reads through the house of legislator and stores values in Array ******
-  for (let index = 0; index < dataFormatOld.length; index++) {
-    legArray[index] = dataFormatOld[index]['@attributes'];
-    // console.log(legArray);
-  }
-  console.log(legArray);
-  // searchCName() // call search function to find the legislator
-  return data;
+    // ******API URL from where data is retrieved  ******
+    const legislatorURL = `http://www.opensecrets.org/api/?method=getLegislators&id=NJ&apikey=${apiKey}&output=json`;
+    const response = await fetch(legislatorURL);
+    const data = await response.json();
+    const dataFormatOld = data.response.legislator;
+    // console.log(dataFormatOld);
+
+    // ****** reads through the house of legislator and stores values in Array ******
+    for (let index = 0; index < dataFormatOld.length; index++) {
+        legArray[index] = dataFormatOld[index]['@attributes'];
+        // console.log(legArray);
+    }
+    console.log(legArray);
+    // searchCName() // call search function to find the legislator
+    return data;
 }
 
 // ****** finds the value for FirstLastName of the legislator ******
 function findFirstLastName(element) {
-  console.log(element);
-  console.log('FirstLastName element value');
-  searchInputCFLName = searchNameIn;
-  console.log(searchInputCFLName);
-  console.log(searchNameIn);
-  return element.firstlast === searchInputCFLName;
+    console.log(element);
+    console.log('FirstLastName element value');
+    searchInputCFLName = searchNameIn;
+    console.log(searchInputCFLName);
+    console.log(searchNameIn);
+    return element.firstlast === searchInputCFLName;
 }
 
 // ****** finds the value for LastName of the Legislator ******
@@ -80,46 +82,46 @@ function findFirstLastName(element) {
 
 //******finds the Leigslators name******
 export function searchCName() {
-  // use filter function to get similar names -- indexof to get specific name
-  // filter((element) => { /* … */ })
+    // use filter function to get similar names -- indexof to get specific name
+    // filter((element) => { /* … */ })
 
-  // passes the value from the search in the arrary. This should be replaced with Arror function
-  // userIndexFLName = legArray.findIndex(findFirstLastName); //element => findFirstLastName(element)
-  userIndexFLName = legArray.findIndex(findFirstLastName); //element => findFirstLastName(element)
-  // const userIndexFLNameIncludes = legArray.includes(findFirstLastName);
-  // userIndexLName = legArray.findIndex(findLastName); //element => findLastName(element)
+    // passes the value from the search in the arrary. This should be replaced with Arror function
+    // userIndexFLName = legArray.findIndex(findFirstLastName); //element => findFirstLastName(element)
+    userIndexFLName = legArray.findIndex(findFirstLastName); //element => findFirstLastName(element)
+    // const userIndexFLNameIncludes = legArray.includes(findFirstLastName);
+    // userIndexLName = legArray.findIndex(findLastName); //element => findLastName(element)
 
-  // const userIndex = legArray.findIndex(findFirstLastName)
-  console.log('userIndexFLName');
-  console.log(userIndexFLName);
-  // console.log("userIndexFLNameIncludes");
-  // console.log(userIndexFLNameIncludes);
-  // console.log(userIndexLName);
-
-  // ****** returns information from the search on the legislator ******
-  if (userIndexFLName != -1) {
-    console.log('FirstLastName Index found!');
+    // const userIndex = legArray.findIndex(findFirstLastName)
+    console.log('userIndexFLName');
     console.log(userIndexFLName);
-    console.log(legArray[userIndexFLName]);
-    console.log(legArray[userIndexFLName].cid);
-    console.log(legArray[userIndexFLName].firstlast);
-    return legArray[userIndexFLName].cid;
-  } else {
-    console.log('FirstLastName Index NOT found');
-    return null;
-  }
+    // console.log("userIndexFLNameIncludes");
+    // console.log(userIndexFLNameIncludes);
+    // console.log(userIndexLName);
 
-  // if (userIndexLName != -1) {
-  //     console.log('LastName Index found!')
-  //     console.log(userIndexLName);
-  //     console.log(legArray[userIndexLName]);
-  //     console.log(legArray[userIndexLName].cid);
-  //     console.log(legArray[userIndexLName].lastname);
-  //     searchIndexUserIndexLName = legArray[userIndexLName].cid;
+    // ****** returns information from the search on the legislator ******
+    if (userIndexFLName != -1) {
+        console.log('FirstLastName Index found!');
+        console.log(userIndexFLName);
+        console.log(legArray[userIndexFLName]);
+        console.log(legArray[userIndexFLName].cid);
+        console.log(legArray[userIndexFLName].firstlast);
+        return legArray[userIndexFLName].cid;
+    } else {
+        console.log('FirstLastName Index NOT found');
+        return null;
+    }
 
-  // } else {
-  //     console.log('LastName Index NOT found')
-  // }
+    // if (userIndexLName != -1) {
+    //     console.log('LastName Index found!')
+    //     console.log(userIndexLName);
+    //     console.log(legArray[userIndexLName]);
+    //     console.log(legArray[userIndexLName].cid);
+    //     console.log(legArray[userIndexLName].lastname);
+    //     searchIndexUserIndexLName = legArray[userIndexLName].cid;
+
+    // } else {
+    //     console.log('LastName Index NOT found')
+    // }
 }
 // cID = legArray[userIndexLName].cid;
 
