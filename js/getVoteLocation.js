@@ -12,17 +12,17 @@ function getPollingLocation(address) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      let body = document.getElementsByTagName('body')[0];
-      let div = document.createElement('div');
-      let locationName = (document.createElement('p'));
+      let body = document.getElementsByTagName("body")[0];
+      let div = document.createElement("div");
+      let locationName = document.createElement("p");
       locationName.textContent = data.pollingLocations[0].address.locationName;
-      let line1 = (document.createElement('p'));
+      let line1 = document.createElement("p");
       line1.textContent = data.pollingLocations[0].address.line1;
-      let city = (document.createElement('p'));
+      let city = document.createElement("p");
       city.textContent = data.pollingLocations[0].address.city;
-      let state = (document.createElement('p'));
+      let state = document.createElement("p");
       state.textContent = data.pollingLocations[0].address.state;
-      let zip = (document.createElement('p'));
+      let zip = document.createElement("p");
       zip.textContent = data.pollingLocations[0].address.zip;
       div.appendChild(locationName);
       div.appendChild(line1);
@@ -30,11 +30,13 @@ function getPollingLocation(address) {
       div.appendChild(state);
       div.appendChild(zip);
       body.appendChild(div);
-    });
+    })
+    .catch((error) => {
+      alert("No Election Data Available!")
+    });;
 }
 
-
-function getAddress() {
+export function getAddress() {
   // Access search button on page
   let searchButton = document.getElementsByClassName(
     'page-btn hero-search__btn',
@@ -55,6 +57,7 @@ function getAddress() {
       addressData[key] = value;
     }
 
+
     // Make address a string
     let address = '';
     for (const k in addressData) {
@@ -65,4 +68,3 @@ function getAddress() {
   });
 }
 
-getAddress();
