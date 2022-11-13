@@ -11,7 +11,6 @@ const getLegislators = async () => {
   for (let i = 0; i < legisData.length; i++) {
     legisArray[i] = legisData[i]['@attributes'];
   }
-  console.log(legisArray);
 
   return legisArray;
 };
@@ -19,21 +18,21 @@ const getLegislators = async () => {
 getLegislators();
 
 export const searchCandName = (input) => {
-  function findName() {
-    let searchedName;
-    return searchedName === input;
+  function findName(legisArray) {
+    let searchedName = input;
+
+    return legisArray.firstlast === searchedName;
   }
 
   let candIndex = legisArray.findIndex(findName);
-  console.log(candIndex);
 
   if (candIndex != -1) {
     console.log('FirstLast Name Index Found', candIndex);
-    console.log(legisArray[candIndex].cid);
 
     return legisArray[candIndex].cid;
   } else {
     console.log('FirstLast Name Index NOT Found');
+    alert('Name not found, please search for another Member of Congress');
 
     return null;
   }
