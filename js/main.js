@@ -2,7 +2,7 @@ import '../css/style.css';
 import './components/header.js';
 import './components/button.js';
 import './components/search-result.js';
-import './components/addressForm';
+import './components/addressForm.js';
 
 import { getData } from './api.js';
 

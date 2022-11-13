@@ -1,7 +1,7 @@
 import '../css/style.css';
 import './components/header.js';
 import './components/button.js';
-import './components/addressForm.js';
+import './components/addressForm.js'
 
 function getPollingLocation(address) {
   let apiKey = 'AIzaSyC7ntKLEV7b74cH4q2fz3qiUo5umvqO9_o';
