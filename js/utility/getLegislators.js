@@ -3,7 +3,7 @@ const apiKey = import.meta.env.VITE_API_KEY; // API Key Hidden
 let legisArray = [];
 
 const getLegislators = async () => {
-  const legisURL = `https://www.opensecrets.org/api/?method=getLegislators&id=NJ&apikey=${apiKey}&output=json`;
+  const legisURL = `https://www.opensecrets.org/api/?method=getLegislators&id=FL&apikey=${apiKey}&output=json`;
 
   const legisResponse = await (await fetch(legisURL)).json();
   const legisData = legisResponse.response.legislator;
@@ -11,6 +11,7 @@ const getLegislators = async () => {
   for (let i = 0; i < legisData.length; i++) {
     legisArray[i] = legisData[i]['@attributes'];
   }
+  console.log(legisArray);
 
   return legisArray;
 };
