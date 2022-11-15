@@ -20,4 +20,7 @@ candidateSearchBtn.addEventListener('click', (evt) => {
 
     searchNameInput.value = '';
     searchNameInput.focus();
+
 });
+
+// getLegislators();

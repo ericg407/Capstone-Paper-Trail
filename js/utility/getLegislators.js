@@ -1,9 +1,11 @@
+import { getData } from "./getData";
+import { getDataOnLoad } from "./getDataOnLoad";
+
 const apiKey =
     import.meta.env.VITE_API_KEY; // API Key Hidden
 
-let legisArray = [];
-
-var stateID = document.getElementById('country-state');
+let legisArray = []; // inintialize array to store the list of Legislators
+var stateID = document.getElementById('country-state'); //get state from combo box
 
 export const getLegislators = async() => {
 
@@ -24,7 +26,36 @@ export const getLegislators = async() => {
 
 // getLegislators();
 // stateID.addEventListener("change", getLegislators);
-stateID.addEventListener("change", function() { getLegislators(); });
+// stateID.addEventListener("change", function() { getLegislators(); });
+stateID.addEventListener("change", function() {
+    getLegislators();
+    var legisArrayCID;
+
+    for (let i = 0; i < legisArray.length; i++) {
+        legisArrayCID = legisArray[i].cid;
+        getDataOnLoad(legisArrayCID);
+        console.log('legisArrayCID is: ', legisArrayCID);
+    }
+
+});
+
+
+function cleargetData() {
+
+    const resultGrid = document.getElementById('result-grid');
+    const resultItem = document.createElement('div');
+    resultItem.classList.add('result-grid__item');
+
+
+    resultItem.innerHTML = ``;
+
+    resultGrid.append(resultItem);
+
+
+
+
+}
+
 
 export const searchCandName = (input) => {
     function findName(legisArray) {
