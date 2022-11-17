@@ -14,6 +14,26 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+body {
+  background: -webkit-linear-gradient(red, blue); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(red, white, blue); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(
+    red,
+    white,
+    blue
+  ); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(
+    red,
+    white,
+    blue
+  ); /* Standard syntax (must be last) */
+  height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
 
 .page-section {
   width: 100vw;
