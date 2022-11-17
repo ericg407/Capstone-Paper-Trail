@@ -21,7 +21,7 @@ class SearchResult extends HTMLElement {
     this.innerHTML = `
     <div class="search-result">
       <div class="search-result__info">
-        <div class="search-result__info-img"><img src="${img}" alt="${name}" /></div>
+        <div class="search-result__info-img"><img src="${img}" alt="${name}" onerror="this.src='/user-icon.jpg'" /></div>
         <div class="search-result__info-content">
           <div class="search-result__info-name"><span>${name}</span></div>
           <div class="search-result__info-position"><span>${position}</span></div>
