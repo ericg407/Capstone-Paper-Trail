@@ -12,7 +12,6 @@ export const getLegislators = async() => {
     var stateIDValue = document.getElementById('country-state').value;
     console.log('stateIDValue', stateIDValue);
     const legisURL = `https://www.opensecrets.org/api/?method=getLegislators&id=${stateIDValue}&apikey=${apiKey}&output=json`;
-
     const legisResponse = await (await fetch(legisURL)).json();
     const legisData = legisResponse.response.legislator;
 
@@ -24,11 +23,11 @@ export const getLegislators = async() => {
     return legisArray;
 };
 
-// getLegislators();
-// stateID.addEventListener("change", getLegislators);
-// stateID.addEventListener("change", function() { getLegislators(); });
-stateID.addEventListener("change", function() {
-    getLegislators();
+
+//prints out the list of Legislator names from the Array 
+export function printArrayNames() {
+    // getLegislators();
+
     var legisArrayCID;
 
     for (let i = 0; i < legisArray.length; i++) {
@@ -37,26 +36,31 @@ stateID.addEventListener("change", function() {
         console.log('legisArrayCID is: ', legisArrayCID);
     }
 
-});
-
-
-function cleargetData() {
-
-    const resultGrid = document.getElementById('result-grid');
-    const resultItem = document.createElement('div');
-    resultItem.classList.add('result-grid__item');
-
-
-    resultItem.innerHTML = ``;
-
-    resultGrid.append(resultItem);
-
-
-
 
 }
 
+//reloads after a selction is made on the drop donwlist box
+// stateID.addEventListener("change", function() {
+//     printArrayNames();
 
+//     // getLegislators();
+//     // var legisArrayCID;
+
+//     // for (let i = 0; i < legisArray.length; i++) {
+//     //     legisArrayCID = legisArray[i].cid;
+//     //     getDataOnLoad(legisArrayCID);
+//     //     console.log('legisArrayCID is: ', legisArrayCID);
+//     // }
+
+// });
+
+//clears the results from the page
+export function cleargetData() {
+    const resultGrid = document.getElementById('result-grid');
+    resultGrid.innerHTML = ``;
+}
+
+// searches for the candidates names from the legislator array
 export const searchCandName = (input) => {
     function findName(legisArray) {
         let searchedName = input;
