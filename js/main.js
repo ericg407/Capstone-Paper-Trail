@@ -5,17 +5,19 @@ import './components/search-result.js';
 import './components/search-result-profile';
 
 import { getData } from './utility/getData.js';
-import { searchCandName, getLegislators, printArrayNames, cleargetData } from './utility/getLegislators.js';
+import { searchCandName, getLegislators, printArrayNames, cleargetData, getLocation } from './utility/getLegislators.js';
 
 
 
 const candidateSearchBtn = document.getElementById('hero-search_btn');
-getLegislators();
+getLocation();
+
 candidateSearchBtn.addEventListener('click', (evt) => {
     // evt.preventDefault();
 
     cleargetData(); // clear screen
-    // getLegislators(); // load legislators
+    getLegislators(); // load legislators
+    cleargetData(); // clear screen
     printArrayNames(); // print names in the Array with Legislators 
 
 
