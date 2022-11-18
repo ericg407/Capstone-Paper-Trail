@@ -3,6 +3,8 @@ import './components/header.js';
 import './components/button.js';
 import './components/search-result.js';
 import './components/search-result-profile';
+import './components/footer.js';
+
 
 import { getData } from './utility/getData.js';
 import { searchCandName, getLegislators, printArrayNames, cleargetData } from './utility/getLegislators.js';
@@ -28,3 +30,9 @@ candidateSearchBtn.addEventListener('click', (evt) => {
     // searchNameInput.focus();
 
 });
+
+// On click go to top of page
+let buttonToTop = document.getElementsByClassName("menu-list__btn-text")[0];
+buttonToTop.addEventListener("click", function(){
+    window.scrollTo(0, 0);
+})
