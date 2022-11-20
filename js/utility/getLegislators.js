@@ -12,7 +12,7 @@ export const getLegislators = async (state) => {
     legisArray[i] = legisData[i]['@attributes'];
     // console.log(legisArray[i].cid);
   }
-  console.log(legisArray);
+  console.log('Legislators', legisArray);
 
   return legisArray;
 };
