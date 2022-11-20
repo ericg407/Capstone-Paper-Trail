@@ -25,12 +25,17 @@ export const getData = async (candArray) => {
     const resultItem = document.createElement('div');
     resultItem.classList.add('result-grid__item');
 
+    const cLongName = summaryDataFormat.cand_name;
+    const nameSplit = cLongName.split(',');
+    var firstName = nameSplit[1];
+    var lastName = nameSplit[0];
+
     const cImageURL = `https://cdn1.opensecrets.org/congress-members/photos/${summaryDataFormat.cid}.jpg`;
 
     resultItem.innerHTML = `
       <search-result
         result-img="${cImageURL}"
-        result-name="${summaryDataFormat.cand_name}"
+        result-name="${firstName} ${lastName}"
         result-position="${summaryDataFormat.chamber}"
         result-state="${summaryDataFormat.state}"
         result-party="${summaryDataFormat.party}"
