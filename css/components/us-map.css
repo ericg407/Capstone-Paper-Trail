@@ -1,5 +1,6 @@
 #us-map {
   fill: rgb(65, 126, 186);
+  width: 100%;
 }
 #us-map g {
   transition: 0.3s;
