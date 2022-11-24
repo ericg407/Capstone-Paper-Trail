@@ -87,6 +87,8 @@ body {
 #result-grid {
   width: 40%;
   height: 100%;
+
+  padding-top: 60px;
 }
 
 #result-grid__inner {
