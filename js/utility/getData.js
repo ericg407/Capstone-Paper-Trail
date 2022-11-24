@@ -1,7 +1,7 @@
 const apiKey = import.meta.env.VITE_API_KEY; //API Key hidden
 
 export const getData = async (candArray) => {
-  const resultGrid = document.getElementById('result-grid');
+  const resultGrid = document.getElementById('result-grid__inner');
   resultGrid.innerHTML = '';
 
   console.log(candArray);
