@@ -12,6 +12,8 @@ class SearchResult extends HTMLElement {
     const state = this.getAttribute('result-state');
     const party = this.getAttribute('result-party');
 
+    const contrib = this.getAttribute('result-contrib') || '0';
+
     // const contrib1 = this.getAttribute('contrib1');
     // const contrib2 = this.getAttribute('contrib2');
     // const contrib3 = this.getAttribute('contrib3');
@@ -30,8 +32,19 @@ class SearchResult extends HTMLElement {
         </div>
       </div>
 
-      <div class="search-result__btn">
-        <custom-btn bLink="${link}" bText="See More"></custom-btn>
+      <div class="search-result__contents">
+        <div class="search-result__contribs">
+          <div class="search-result__contribs-title">
+            <span>Total Contributions</span>
+          </div>
+
+          <div class="search-result__contribs-content">
+            <span>$${contrib}</span>
+          </div>
+        </div>
+        <div class="search-result__btn">
+          <custom-btn bLink="${link}" bText="See More"></custom-btn>
+        </div>
       </div>
     </div>
     `;

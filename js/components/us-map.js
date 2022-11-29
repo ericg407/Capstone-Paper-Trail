@@ -368,7 +368,19 @@ export const getState = (callback1, callback2) => {
   var usMap = document.getElementById('us-map');
   var allStates = usMap.querySelectorAll('g');
 
+  const clickState = () => {
+    setTimeout(() => {
+      usMap.style.pointerEvents = 'none';
+    }, 200);
+
+    setTimeout(() => {
+      usMap.style.pointerEvents = 'initial';
+    }, 6000);
+  };
+
   usMap.addEventListener('click', (e) => {
+    clickState();
+
     var state = e.target.parentNode;
 
     if (e.target.nodeName == 'path') {
@@ -379,13 +391,8 @@ export const getState = (callback1, callback2) => {
       state.classList.add('active');
       var stateAbbr = state.id;
 
-      console.log(stateAbbr);
-
-      // var newArray = callback1(stateAbbr);
-
       var newArray = callback1(stateAbbr);
       newArray.then((results) => {
-        console.log(results);
         callback2(results);
       });
     }

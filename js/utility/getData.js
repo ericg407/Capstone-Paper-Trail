@@ -4,21 +4,32 @@ export const getData = async (candArray) => {
   const resultGrid = document.getElementById('result-grid__inner');
   resultGrid.innerHTML = '';
 
-  console.log(candArray);
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < candArray.length; i++) {
     let candCID = candArray[i].cid;
 
     const summaryURL = `https://www.opensecrets.org/api/?method=candSummary&cid=${candCID}&cycle=2022&apikey=${apiKey}&output=json`;
+    const contribURL = `https://www.opensecrets.org/api/?method=candContrib&cid=${candCID}&cycle=2022&apikey=${apiKey}&output=json`;
 
-    const summaryResponse = await (await fetch(summaryURL)).json();
-    const summaryData = summaryResponse.response.summary['@attributes'];
+    var response = await Promise.all([fetch(summaryURL), fetch(contribURL)]);
+    var data = await Promise.all([response[0].json(), response[1].json()]);
+
+    const summaryData = data[0].response.summary['@attributes'];
     // summaryData output: cand_name, cid, cycle, state, party, chamber, first_elected, next_election, spent, cash_on_hand, debt, origin, source, last_updated, total
 
-    // const contribURL = `https://www.opensecrets.org/api/?method=candContrib&cid=${candCID}&cycle=2022&apikey=${apiKey}&output=json`;
-
-    // const contribResponse = await (await fetch(contribURL)).json();
-    // const contribData = contribResponse.response.contributors.contributor;
+    const contribData = data[1].response.contributors.contributor;
     // contribData output: org_name, total, pacs, indivs
+
+    let contribTotal = () => {
+      let total = 0;
+
+      for (let t = 0; t < contribData.length; t++) {
+        let contribDataTotal = Number(contribData[t]['@attributes'].total);
+
+        total = total + contribDataTotal;
+      }
+
+      return total;
+    };
 
     const resultItem = document.createElement('div');
     resultItem.classList.add('result-grid__item');
@@ -37,14 +48,13 @@ export const getData = async (candArray) => {
         result-position="${summaryData.chamber}"
         result-state="${summaryData.state}"
         result-party="${summaryData.party}"
-        result-link="https://www.opensecrets.org/members-of-congress/summary?cid=${summaryData.cid}"
+        result-link="https://www.opensecrets.org/members-of-congress/summary?cid=${
+          summaryData.cid
+        }"
+        result-contrib="${contribTotal()}"
       ></search-result>
     `;
 
     resultGrid.append(resultItem);
   }
 };
-
-// contrib1="${contribDataFormat[0]['@attributes'].org_name} ($${contribDataFormat[0]['@attributes'].total})"
-// contrib2="${contribDataFormat[1]['@attributes'].org_name} ($${contribDataFormat[1]['@attributes'].total})"
-// contrib3="${contribDataFormat[2]['@attributes'].org_name} ($${contribDataFormat[2]['@attributes'].total})"
