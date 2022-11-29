@@ -365,23 +365,28 @@ class USMap extends HTMLElement {
 customElements.define('us-map', USMap);
 
 export const getState = (callback1, callback2) => {
-  var usMap = document.getElementById('us-map');
-  var allStates = usMap.querySelectorAll('g');
+  const usMap = document.getElementById('us-map');
+  const allStates = usMap.querySelectorAll('g');
+
+  const sort = document.getElementById('result-grid__sort');
 
   const clickState = () => {
     setTimeout(() => {
       usMap.style.pointerEvents = 'none';
+      sort.value = 'Sort';
+      sort.disabled = true;
     }, 200);
 
     setTimeout(() => {
       usMap.style.pointerEvents = 'initial';
+      sort.disabled = false;
     }, 6000);
   };
 
   usMap.addEventListener('click', (e) => {
     clickState();
 
-    var state = e.target.parentNode;
+    let state = e.target.parentNode;
 
     if (e.target.nodeName == 'path') {
       for (let i = 0; i < allStates.length; i++) {
@@ -389,15 +394,12 @@ export const getState = (callback1, callback2) => {
       }
 
       state.classList.add('active');
-      var stateAbbr = state.id;
+      let stateAbbr = state.id;
 
-      var newArray = callback1(stateAbbr);
+      let newArray = callback1(stateAbbr);
       newArray.then((results) => {
         callback2(results);
       });
     }
-
-    let sort = document.getElementById('result-grid__sort');
-    sort.disabled = false;
   });
 };

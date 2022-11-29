@@ -13,7 +13,7 @@ import { sortDataHigh, sortDataLow } from './utility/sortData.js';
 
 getState(getLegislators, getData);
 
-let resultSort = document.getElementById('result-grid__sort');
+const resultSort = document.getElementById('result-grid__sort');
 
 resultSort.addEventListener('change', () => {
   if (resultSort.value == 'High-To-Low') {

@@ -4,19 +4,19 @@ export const getData = async (candArray) => {
   const resultGrid = document.getElementById('result-grid__inner');
   resultGrid.innerHTML = '';
 
-  for (let i = 0; i < candArray.length; i++) {
+  for (let i = 0; i < 8; i++) {
     let candCID = candArray[i].cid;
 
     const summaryURL = `https://www.opensecrets.org/api/?method=candSummary&cid=${candCID}&cycle=2022&apikey=${apiKey}&output=json`;
     const contribURL = `https://www.opensecrets.org/api/?method=candContrib&cid=${candCID}&cycle=2022&apikey=${apiKey}&output=json`;
 
-    var response = await Promise.all([fetch(summaryURL), fetch(contribURL)]);
-    var data = await Promise.all([response[0].json(), response[1].json()]);
+    let response = await Promise.all([fetch(summaryURL), fetch(contribURL)]);
+    let data = await Promise.all([response[0].json(), response[1].json()]);
 
-    const summaryData = data[0].response.summary['@attributes'];
+    let summaryData = data[0].response.summary['@attributes'];
     // summaryData output: cand_name, cid, cycle, state, party, chamber, first_elected, next_election, spent, cash_on_hand, debt, origin, source, last_updated, total
 
-    const contribData = data[1].response.contributors.contributor;
+    let contribData = data[1].response.contributors.contributor;
     // contribData output: org_name, total, pacs, indivs
 
     let contribTotal = () => {
@@ -33,12 +33,12 @@ export const getData = async (candArray) => {
 
     const resultItem = document.createElement('li');
     resultItem.classList.add('result-grid__item');
-    resultItem.dataset.total = Number(contribTotal());
+    resultItem.dataset.total = contribTotal();
 
     const cLongName = summaryData.cand_name;
     const nameSplit = cLongName.split(',');
-    var firstName = nameSplit[1];
-    var lastName = nameSplit[0];
+    let firstName = nameSplit[1];
+    let lastName = nameSplit[0];
 
     const cImageURL = `https://cdn1.opensecrets.org/congress-members/photos/${summaryData.cid}.jpg`;
 
@@ -52,16 +52,13 @@ export const getData = async (candArray) => {
         result-link="https://www.opensecrets.org/members-of-congress/summary?cid=${
           summaryData.cid
         }"
-        result-contrib="${contribTotal()}"
+        result-contrib="${contribTotal().toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        })}"
       ></search-result>
     `;
 
     resultGrid.append(resultItem);
   }
-
-  let moneys = document.querySelectorAll('.result-grid__item');
-  console.log(moneys);
-  moneys.forEach((e) => {
-    console.log(e.dataset.total);
-  });
 };

@@ -1,27 +1,22 @@
-let comparatorHigh = (a, b) => {
-  if (a.dataset.total < b.dataset.total) return 1;
-  if (a.dataset.total > b.dataset.total) return -1;
+const comparatorHigh = (a, b) => {
+  if (Number(a.dataset.total) < Number(b.dataset.total)) return 1;
+  if (Number(a.dataset.total) > Number(b.dataset.total)) return -1;
 
   return 0;
 };
 
-let comparatorLow = (a, b) => {
-  if (a.dataset.total > b.dataset.total) return 1;
-  if (a.dataset.total < b.dataset.total) return -1;
+const comparatorLow = (a, b) => {
+  if (Number(a.dataset.total) > Number(b.dataset.total)) return 1;
+  if (Number(a.dataset.total) < Number(b.dataset.total)) return -1;
 
   return 0;
 };
 
-export let sortDataHigh = () => {
-  let totals = document.querySelectorAll('.result-grid__item');
+export const sortDataHigh = () => {
+  const totals = document.querySelectorAll('.result-grid__item');
   console.log(totals);
 
-  let totalsArray = [];
-  totals.forEach((t) => {
-    console.log(t.dataset.total);
-
-    totalsArray.push(t.dataset.total);
-  });
+  let totalsArray = Array.from(totals);
   console.log(totalsArray);
 
   let sorted = totalsArray.sort(comparatorHigh);
@@ -30,16 +25,11 @@ export let sortDataHigh = () => {
   });
 };
 
-export let sortDataLow = () => {
-  let totals = document.querySelectorAll('.result-grid__item');
+export const sortDataLow = () => {
+  const totals = document.querySelectorAll('.result-grid__item');
   console.log(totals);
 
-  let totalsArray = [];
-  totals.forEach((t) => {
-    console.log(Number(t.dataset.total));
-
-    totalsArray.push(Number(t.dataset.total));
-  });
+  let totalsArray = Array.from(totals);
   console.log(totalsArray);
 
   let sorted = totalsArray.sort(comparatorLow);
