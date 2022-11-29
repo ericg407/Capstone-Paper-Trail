@@ -1,45 +1,44 @@
 .search-result {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
 
   width: 400px;
-  height: 420px;
+  height: 100%;
 
-  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 
   position: relative;
 
   border: solid 2px #1670ba;
   border-radius: 8px;
 
-  background-color: #eee;
+  background-color: #fff;
 }
 
 .search-result__info {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: start;
-  column-gap: 16px;
+  row-gap: 2px;
+  flex-grow: 0;
 
-  width: 100%;
-  height: 200px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 
-  padding: 16px 32px;
-
-  background-color: #fff;
+  width: 50%;
+  height: 100%;
 }
 
 .search-result__info-img {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
 
   border-radius: 4px;
 }
@@ -52,65 +51,58 @@
 .search-result__info-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  row-gap: 4px;
+  row-gap: 2px;
 
-  width: 280px;
-  height: 100%;
+  width: 100%;
 }
 
 .search-result__info-name {
-  font-size: 1.6em;
+  font-size: 1.2em;
   font-weight: 700;
 }
 
 .search-result__info-position {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
-.search-result__contributors {
+.search-result__contents {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  row-gap: 24px;
 
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  width: 50%;
   height: 100%;
-
-  padding-left: 32px;
-  padding-right: 32px;
 }
 
-.search-result__contributors-title {
+.search-result__contribs {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: end;
-
-  height: 60px;
-
-  font-size: 1.6em;
-}
-
-.sr-contributors__list {
-  list-style-type: none;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   row-gap: 8px;
 
-  padding-top: 32px;
-  padding-bottom: 32px;
+  height: max-content;
 }
 
-.sr-contributors__list-item {
+.search-result__contribs-title {
   font-size: 1.2em;
+  font-weight: 700;
+}
+
+.search-result__contribs-content {
+  font-size: 1.6em;
+  color: #1670ba;
 }
 
 .search-result__btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  width: 100%;
 }
