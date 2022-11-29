@@ -6,8 +6,8 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paper Trail</title>
-    <script type="module" crossorigin src="/assets/index.fac696b3.js"></script>
-    <link rel="stylesheet" href="/assets/index.c3359511.css">
+    <script type="module" crossorigin src="/assets/index.abf84d94.js"></script>
+    <link rel="stylesheet" href="/assets/index.b66f4bd3.css">
   </head>
 
   <body>
@@ -21,10 +21,20 @@
           </div>
 
           <div id="result-grid">
-            <h2 class="page-h2">
-              Select your state to see your Congress men and women
-            </h2>
-            <div id="result-grid__inner"></div>
+            <h2 class="page-h2">Candidates and Officeholders</h2>
+
+            <div class="result-grid__dropdown">
+              <select id="result-grid__sort" name="sort" disabled>
+                <option value="Sort">Sort By</option>
+                <option value="High-To-Low">
+                  Total Contributions Received, High To Low
+                </option>
+                <option value="Low-To-High">
+                  Total Contributions Received, Low To High
+                </option>
+              </select>
+            </div>
+            <ul id="result-grid__inner"></ul>
           </div>
         </div>
       </div>
