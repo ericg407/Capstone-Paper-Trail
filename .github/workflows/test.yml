@@ -1,0 +1,20 @@
+name: Capstone Paper Trail Test
+
+# On every code push and pull request, run this
+on: [push, pull_request]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 # Check out our code
+
+      - name: Use Node.js 16 # Use Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'npm'
+
+      - run: npm ci # Install our node modules
+      - run: npm test # Run our test script
+      - run: npm run build # Run our build script
