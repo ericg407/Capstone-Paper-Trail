@@ -18,10 +18,16 @@
           </div>
 
           <div id="result-grid">
-            <h2 class="page-h2">
-              Select your state to see your Congress men and women
-            </h2>
-            <div id="result-grid__inner"></div>
+            <h2 class="page-h2">Candidates and Officeholders</h2>
+
+            <div class="result-grid__dropdown">
+              <select id="result-grid__sort" name="sort" disabled>
+                <option value="Any">Any</option>
+                <option value="High-To-Low">High To Low</option>
+                <option value="Low-To-High">Low To High</option>
+              </select>
+            </div>
+            <ul id="result-grid__inner"></ul>
           </div>
         </div>
       </div>

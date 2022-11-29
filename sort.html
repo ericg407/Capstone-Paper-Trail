@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Meta data-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+		initial-scale=1.0"
+    />
+
+    <style>
+      h1 {
+        color: green;
+      }
+
+      button {
+        color: green;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <!-- Whatever content in body tag
+	appears on the webpage-->
+  <body>
+    <h1>GeeksforGeeks</h1>
+    <hr />
+
+    <ul id="list">
+      <li class="index" data-index="1">1</li>
+      <li class="index" data-index="5">5</li>
+      <li class="index" data-index="2">2</li>
+      <li class="index" data-index="3">3</li>
+      <li class="index" data-index="4">4</li>
+    </ul>
+
+    <!-- onclick event to sort data-->
+    <button onclick="SortData()">Sort HTML elements by Data Attributes</button>
+
+    <script>
+      function comparator(a, b) {
+        if (a.dataset.index < b.dataset.index) return 1;
+        if (a.dataset.index > b.dataset.index) return -1;
+        return 0;
+      }
+
+      // Function to sort Data
+      function SortData() {
+        var indexes = document.querySelectorAll('[data-index]');
+        var indexesArray = Array.from(indexes);
+        let sorted = indexesArray.sort(comparator);
+        sorted.forEach((e) => document.querySelector('#list').appendChild(e));
+      }
+    </script>
+  </body>
+</html>

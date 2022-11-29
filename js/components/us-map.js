@@ -396,5 +396,8 @@ export const getState = (callback1, callback2) => {
         callback2(results);
       });
     }
+
+    let sort = document.getElementById('result-grid__sort');
+    sort.disabled = false;
   });
 };

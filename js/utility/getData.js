@@ -31,8 +31,9 @@ export const getData = async (candArray) => {
       return total;
     };
 
-    const resultItem = document.createElement('div');
+    const resultItem = document.createElement('li');
     resultItem.classList.add('result-grid__item');
+    resultItem.dataset.total = Number(contribTotal());
 
     const cLongName = summaryData.cand_name;
     const nameSplit = cLongName.split(',');
@@ -57,4 +58,10 @@ export const getData = async (candArray) => {
 
     resultGrid.append(resultItem);
   }
+
+  let moneys = document.querySelectorAll('.result-grid__item');
+  console.log(moneys);
+  moneys.forEach((e) => {
+    console.log(e.dataset.total);
+  });
 };
