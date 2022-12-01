@@ -1,6 +1,6 @@
 #us-map {
   /* fill: rgb(65, 126, 186); */
-  fill: blue;
+  fill: #1670ff;
   stroke: #eee;
   stroke-width: 1px;
   width: 100%;
@@ -10,13 +10,13 @@
 }
 #us-map g:hover {
   /* fill: hsl(240, 55%, 40%); */
-  fill: red;
+  fill: #ff0761;
   cursor: pointer;
 }
 .active,
 .active:hover {
   /* fill: rgb(241, 149, 83) !important; */
-  fill: white !important;
+  fill: rgb(222, 222, 222) !important;
 }
 #StateInfo {
   position: absolute;
@@ -27,6 +27,9 @@
   pointer-events: none;
   opacity: 0;
   transition: 1s;
+}
+#HI {
+  transform: scale(1.2);
 }
 @media all and (max-width: 800px) {
   #StateInfo {
