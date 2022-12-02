@@ -14,10 +14,8 @@ const comparatorLow = (a, b) => {
 
 export const sortDataHigh = () => {
   const totals = document.querySelectorAll('.result-grid__item');
-  console.log(totals);
 
   let totalsArray = Array.from(totals);
-  console.log(totalsArray);
 
   let sorted = totalsArray.sort(comparatorHigh);
   sorted.forEach((e) => {
@@ -27,10 +25,8 @@ export const sortDataHigh = () => {
 
 export const sortDataLow = () => {
   const totals = document.querySelectorAll('.result-grid__item');
-  console.log(totals);
 
   let totalsArray = Array.from(totals);
-  console.log(totalsArray);
 
   let sorted = totalsArray.sort(comparatorLow);
   sorted.forEach((e) => {
