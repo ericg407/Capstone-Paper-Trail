@@ -370,17 +370,34 @@ export const getState = (callback1, callback2) => {
 
   const sort = document.getElementById('result-grid__sort');
 
+  const grid = document.getElementById('result-grid__inner');
+  const loading = document.getElementById('result-grid__loading');
+
   const clickState = () => {
     setTimeout(() => {
       usMap.style.pointerEvents = 'none';
+
       sort.value = 'Sort';
       sort.disabled = true;
+
+      grid.classList.remove('active');
+      grid.classList.add('inactive');
+
+      loading.classList.remove('inactive');
+      loading.classList.add('active');
     }, 200);
 
     setTimeout(() => {
       usMap.style.pointerEvents = 'initial';
+
       sort.disabled = false;
-    }, 6000);
+
+      grid.classList.remove('inactive');
+      grid.classList.add('active');
+
+      loading.classList.remove('active');
+      loading.classList.add('inactive');
+    }, 8000);
   };
 
   usMap.addEventListener('click', (e) => {
