@@ -1,4 +1,4 @@
-(function(){const l=document.createElement("link").relList;if(l&&l.supports&&l.supports("modulepreload"))return;for(const L of document.querySelectorAll('link[rel="modulepreload"]'))i(L);new MutationObserver(L=>{for(const e of L)if(e.type==="childList")for(const a of e.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function o(L){const e={};return L.integrity&&(e.integrity=L.integrity),L.referrerpolicy&&(e.referrerPolicy=L.referrerpolicy),L.crossorigin==="use-credentials"?e.credentials="include":L.crossorigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function i(L){if(L.ep)return;L.ep=!0;const e=o(L);fetch(L.href,e)}})();class f extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+(function(){const l=document.createElement("link").relList;if(l&&l.supports&&l.supports("modulepreload"))return;for(const L of document.querySelectorAll('link[rel="modulepreload"]'))i(L);new MutationObserver(L=>{for(const t of L)if(t.type==="childList")for(const a of t.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function o(L){const t={};return L.integrity&&(t.integrity=L.integrity),L.referrerpolicy&&(t.referrerPolicy=L.referrerpolicy),L.crossorigin==="use-credentials"?t.credentials="include":L.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function i(L){if(L.ep)return;L.ep=!0;const t=o(L);fetch(L.href,t)}})();class _ extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
       <footer id="footer-container">
         <div class="footer-wrap">
           <div class="footer-wrap__copyright">
@@ -14,7 +14,7 @@
           </div>
         </div>
       </footer>
-    `}}customElements.define("custom-footer",f);class _ extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+    `}}customElements.define("custom-footer",_);class y extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
       <div id="nav-bar__container">
         <div class="nav-bar__wrap">
           <div class="nav-bar__logo">
@@ -36,13 +36,13 @@
           </div>
         </div>
       </div>
-    `}}customElements.define("custom-header",_);class y extends HTMLElement{constructor(){super()}connectedCallback(){const l=this.getAttribute("bLink")||"#",o=this.getAttribute("bText");this.innerHTML=`
+    `}}customElements.define("custom-header",y);class A extends HTMLElement{constructor(){super()}connectedCallback(){const l=this.getAttribute("bLink")||"#",o=this.getAttribute("bText");this.innerHTML=`
       <div class="custom-btn">
         <a href="${l}" target="_blank" rel="noopener noreferrer" class="page-btn custom-btn__link">
           <span class="custom-btn__link-text">${o}</span>
         </a>
       </div>
-    `}}customElements.define("custom-btn",y);class A extends HTMLElement{constructor(){super()}connectedCallback(){const l=this.getAttribute("result-img")||"",o=this.getAttribute("result-name"),i=this.getAttribute("result-position"),L=this.getAttribute("result-state"),e=this.getAttribute("result-party"),a=this.getAttribute("result-contrib")||"0",r=this.getAttribute("result-link");this.innerHTML=`
+    `}}customElements.define("custom-btn",A);class N extends HTMLElement{constructor(){super()}connectedCallback(){const l=this.getAttribute("result-img")||"",o=this.getAttribute("result-name"),i=this.getAttribute("result-position"),L=this.getAttribute("result-state"),t=this.getAttribute("result-party"),a=this.getAttribute("result-contrib")||"0",s=this.getAttribute("result-link");this.innerHTML=`
     <div class="search-result">
       <div class="search-result__info">
         <div class="search-result__info-img"><img src="${l}" alt="${o}" onerror="this.src='/user-icon.jpg'" /></div>
@@ -50,7 +50,7 @@
           <div class="search-result__info-name"><span>${o}</span></div>
           <div class="search-result__info-position">Chamber: <span>${i}</span></div>
           <div class="search-result__info-state">State: <span>${L}</span></div>
-          <div class="search-result__info-party">Party: <span>${e}</span></div>
+          <div class="search-result__info-party">Party: <span>${t}</span></div>
         </div>
       </div>
 
@@ -66,11 +66,11 @@
         </div>
 
         <div class="search-result__btn">
-          <custom-btn bLink="${r}" bText="See More"></custom-btn>
+          <custom-btn bLink="${s}" bText="See More"></custom-btn>
         </div>
       </div>
     </div>
-    `}}customElements.define("search-result",A);class N extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+    `}}customElements.define("search-result",N);class w extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
       <select id="country-state" name="country-state">
         <option value="none">Please select a state</option>
         <option value="AL">Alabama</option>
@@ -140,7 +140,7 @@
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
       </select>
-    `}}customElements.define("state-selector",N);class w extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+    `}}customElements.define("state-selector",w);class I extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
       <svg viewBox="0 0 1386 822" id="us-map">
         <g id="AL">
           <title>Alabama</title>
@@ -492,14 +492,14 @@
           />
         </g>
       </svg>
-    `}}customElements.define("us-map",w);const I=(t,l)=>{const o=document.getElementById("us-map"),i=o.querySelectorAll("g"),L=document.getElementById("result-grid__sort"),e=()=>{setTimeout(()=>{o.style.pointerEvents="none",L.value="Sort",L.disabled=!0},200),setTimeout(()=>{o.style.pointerEvents="initial",L.disabled=!1},6e3)};o.addEventListener("click",a=>{e();let r=a.target.parentNode;if(a.target.nodeName=="path"){for(let s=0;s<i.length;s++)i[s].classList.remove("active");r.classList.add("active");let n=r.id;t(n).then(s=>{l(s)})}})},z="1b22f4617150dee0474bba7f87cf087b",T=async t=>{const l=document.getElementById("result-grid__inner");l.innerHTML="";for(let o=0;o<8;o++){let i=t[o].cid;const L=`https://www.opensecrets.org/api/?method=candSummary&cid=${i}&cycle=2022&apikey=${z}&output=json`,e=`https://www.opensecrets.org/api/?method=candContrib&cid=${i}&cycle=2022&apikey=${z}&output=json`;let a=await Promise.all([fetch(L),fetch(e)]),r=await Promise.all([a[0].json(),a[1].json()]),n=r[0].response.summary["@attributes"],d=r[1].response.contributors.contributor,s=()=>{let c=0;for(let u=0;u<d.length;u++){let b=Number(d[u]["@attributes"].total);c=c+b}return c};const p=document.createElement("li");p.classList.add("result-grid__item"),p.dataset.total=s();const g=n.cand_name.split(",");let h=g[1],m=g[0];const v=`https://cdn1.opensecrets.org/congress-members/photos/${n.cid}.jpg`;p.innerHTML=`
+    `}}customElements.define("us-map",I);const T=(e,l)=>{const o=document.getElementById("us-map"),i=o.querySelectorAll("g"),L=document.getElementById("result-grid__sort"),t=document.getElementById("result-grid__inner"),a=document.getElementById("result-grid__loading"),s=()=>{setTimeout(()=>{o.style.pointerEvents="none",L.value="Sort",L.disabled=!0,t.classList.remove("active"),t.classList.add("inactive"),a.classList.remove("inactive"),a.classList.add("active")},200),setTimeout(()=>{o.style.pointerEvents="initial",L.disabled=!1,t.classList.remove("inactive"),t.classList.add("active"),a.classList.remove("active"),a.classList.add("inactive")},8e3)};o.addEventListener("click",n=>{s();let c=n.target.parentNode;if(n.target.nodeName=="path"){for(let r=0;r<i.length;r++)i[r].classList.remove("active");c.classList.add("active");let p=c.id;e(p).then(r=>{l(r)})}})},h="1b22f4617150dee0474bba7f87cf087b",k=async e=>{const l=document.getElementById("result-grid__inner");l.innerHTML="";for(let o=0;o<4;o++){let i=e[o].cid;const L=`https://www.opensecrets.org/api/?method=candSummary&cid=${i}&cycle=2022&apikey=${h}&output=json`,t=`https://www.opensecrets.org/api/?method=candContrib&cid=${i}&cycle=2022&apikey=${h}&output=json`;let a=await Promise.all([fetch(L),fetch(t)]),s=await Promise.all([a[0].json(),a[1].json()]),n=s[0].response.summary["@attributes"],c=s[1].response.contributors.contributor,p=()=>{let u=0;for(let M=0;M<c.length;M++){let f=Number(c[M]["@attributes"].total);u=u+f}return u};const d=document.createElement("li");d.classList.add("result-grid__item"),d.dataset.total=p();const z=n.cand_name.split(",");let v=z[1],m=z[0];const b=`https://cdn1.opensecrets.org/congress-members/photos/${n.cid}.jpg`;d.innerHTML=`
       <search-result
-        result-img="${v}"
-        result-name="${h} ${m}"
+        result-img="${b}"
+        result-name="${v} ${m}"
         result-position="${n.chamber}"
         result-state="${n.state}"
         result-party="${n.party}"
         result-link="https://www.opensecrets.org/members-of-congress/summary?cid=${n.cid}"
-        result-contrib="${s().toLocaleString("en-US",{style:"currency",currency:"USD"})}"
+        result-contrib="${p().toLocaleString("en-US",{style:"currency",currency:"USD"})}"
       ></search-result>
-    `,l.append(p)}},k="1b22f4617150dee0474bba7f87cf087b",S=async t=>{let l=[];const o=`https://www.opensecrets.org/api/?method=getLegislators&id=${t}&apikey=${k}&output=json`,L=(await(await fetch(o)).json()).response.legislator;for(let e=0;e<L.length;e++)l[e]=L[e]["@attributes"];return l},C=(t,l)=>Number(t.dataset.total)<Number(l.dataset.total)?1:Number(t.dataset.total)>Number(l.dataset.total)?-1:0,H=(t,l)=>Number(t.dataset.total)>Number(l.dataset.total)?1:Number(t.dataset.total)<Number(l.dataset.total)?-1:0,E=()=>{const t=document.querySelectorAll(".result-grid__item");console.log(t);let l=Array.from(t);console.log(l),l.sort(C).forEach(i=>{document.querySelector("#result-grid__inner").appendChild(i)})},D=()=>{const t=document.querySelectorAll(".result-grid__item");console.log(t);let l=Array.from(t);console.log(l),l.sort(H).forEach(i=>{document.querySelector("#result-grid__inner").appendChild(i)})};I(S,T);const M=document.getElementById("result-grid__sort");M.addEventListener("change",()=>{M.value=="High-To-Low"&&E(),M.value=="Low-To-High"&&D()});
+    `,l.append(d)}},S="1b22f4617150dee0474bba7f87cf087b",C=async e=>{let l=[];const o=`https://www.opensecrets.org/api/?method=getLegislators&id=${e}&apikey=${S}&output=json`,L=(await(await fetch(o)).json()).response.legislator;for(let t=0;t<L.length;t++)l[t]=L[t]["@attributes"];return l},E=(e,l)=>Number(e.dataset.total)<Number(l.dataset.total)?1:Number(e.dataset.total)>Number(l.dataset.total)?-1:0,H=(e,l)=>Number(e.dataset.total)>Number(l.dataset.total)?1:Number(e.dataset.total)<Number(l.dataset.total)?-1:0,D=()=>{const e=document.querySelectorAll(".result-grid__item");console.log(e);let l=Array.from(e);console.log(l),l.sort(E).forEach(i=>{document.querySelector("#result-grid__inner").appendChild(i)})},$=()=>{const e=document.querySelectorAll(".result-grid__item");console.log(e);let l=Array.from(e);console.log(l),l.sort(H).forEach(i=>{document.querySelector("#result-grid__inner").appendChild(i)})};T(C,k);const g=document.getElementById("result-grid__sort");g.addEventListener("change",()=>{g.value=="High-To-Low"&&D(),g.value=="Low-To-High"&&$()});

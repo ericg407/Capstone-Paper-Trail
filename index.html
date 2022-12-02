@@ -6,8 +6,8 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paper Trail</title>
-    <script type="module" crossorigin src="/assets/index.237657db.js"></script>
-    <link rel="stylesheet" href="/assets/index.8607a1f3.css">
+    <script type="module" crossorigin src="/assets/index.1e0fab6a.js"></script>
+    <link rel="stylesheet" href="/assets/index.f3b34252.css">
   </head>
 
   <body>
@@ -23,7 +23,7 @@
           <div id="result-grid">
             <h2 class="page-h2">Candidates and Officeholders</h2>
 
-            <div class="result-grid__dropdown">
+            <div id="result-grid__dropdown">
               <select id="result-grid__sort" name="sort" disabled>
                 <option value="Sort">Sort By</option>
                 <option value="High-To-Low">
@@ -34,6 +34,12 @@
                 </option>
               </select>
             </div>
+
+            <div id="result-grid__loading" class="inactive">
+              <div class="loader"></div>
+              <span>Loading...</span>
+            </div>
+
             <ul id="result-grid__inner"></ul>
           </div>
         </div>
