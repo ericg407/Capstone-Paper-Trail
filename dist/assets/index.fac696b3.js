@@ -1,4 +1,39 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const l of document.querySelectorAll('link[rel="modulepreload"]'))n(l);new MutationObserver(l=>{for(const L of l)if(L.type==="childList")for(const a of L.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&n(a)}).observe(document,{childList:!0,subtree:!0});function i(l){const L={};return l.integrity&&(L.integrity=l.integrity),l.referrerpolicy&&(L.referrerPolicy=l.referrerpolicy),l.crossorigin==="use-credentials"?L.credentials="include":l.crossorigin==="anonymous"?L.credentials="omit":L.credentials="same-origin",L}function n(l){if(l.ep)return;l.ep=!0;const L=i(l);fetch(l.href,L)}})();class z extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+(function () {
+  const t = document.createElement('link').relList;
+  if (t && t.supports && t.supports('modulepreload')) return;
+  for (const l of document.querySelectorAll('link[rel="modulepreload"]')) n(l);
+  new MutationObserver((l) => {
+    for (const L of l)
+      if (L.type === 'childList')
+        for (const a of L.addedNodes)
+          a.tagName === 'LINK' && a.rel === 'modulepreload' && n(a);
+  }).observe(document, { childList: !0, subtree: !0 });
+  function i(l) {
+    const L = {};
+    return (
+      l.integrity && (L.integrity = l.integrity),
+      l.referrerpolicy && (L.referrerPolicy = l.referrerpolicy),
+      l.crossorigin === 'use-credentials'
+        ? (L.credentials = 'include')
+        : l.crossorigin === 'anonymous'
+        ? (L.credentials = 'omit')
+        : (L.credentials = 'same-origin'),
+      L
+    );
+  }
+  function n(l) {
+    if (l.ep) return;
+    l.ep = !0;
+    const L = i(l);
+    fetch(l.href, L);
+  }
+})();
+class z extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    this.innerHTML = `
       <footer id="footer-container">
         <div class="footer-wrap">
           <div class="footer-wrap__copyright">
@@ -14,11 +49,20 @@
           </div>
         </div>
       </footer>
-    `}}customElements.define("custom-footer",z);class g extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+    `;
+  }
+}
+customElements.define('custom-footer', z);
+class g extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    this.innerHTML = `
       <div id="nav-bar__container">
         <div class="nav-bar__wrap">
           <div class="nav-bar__logo">
-            <img src="" alt="Capstone Project" id="logo" />
+            <img src="./assets/img/paper-trail-logo.png" alt="Capstone Project" id="logo" />
           </div>
 
           <div class="nav-bar">
@@ -36,13 +80,42 @@
           </div>
         </div>
       </div>
-    `}}customElements.define("custom-header",g);class h extends HTMLElement{constructor(){super()}connectedCallback(){const t=this.getAttribute("bLink")||"#",i=this.getAttribute("bText");this.innerHTML=`
+    `;
+  }
+}
+customElements.define('custom-header', g);
+class h extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    const t = this.getAttribute('bLink') || '#',
+      i = this.getAttribute('bText');
+    this.innerHTML = `
       <div class="custom-btn">
         <a href="${t}" target="_blank" rel="noopener noreferrer" class="page-btn custom-btn__link">
           <span class="custom-btn__link-text">${i}</span>
         </a>
       </div>
-    `}}customElements.define("custom-btn",h);class v extends HTMLElement{constructor(){super()}connectedCallback(){const t=this.getAttribute("result-img")||"",i=this.getAttribute("result-name"),n=this.getAttribute("result-position"),l=this.getAttribute("result-state"),L=this.getAttribute("result-party"),a=this.getAttribute("contrib1"),r=this.getAttribute("contrib2"),e=this.getAttribute("contrib3"),p=this.getAttribute("result-link");this.innerHTML=`
+    `;
+  }
+}
+customElements.define('custom-btn', h);
+class v extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    const t = this.getAttribute('result-img') || '',
+      i = this.getAttribute('result-name'),
+      n = this.getAttribute('result-position'),
+      l = this.getAttribute('result-state'),
+      L = this.getAttribute('result-party'),
+      a = this.getAttribute('contrib1'),
+      r = this.getAttribute('contrib2'),
+      e = this.getAttribute('contrib3'),
+      p = this.getAttribute('result-link');
+    this.innerHTML = `
     <div class="search-result">
       <div class="search-result__info">
         <div class="search-result__info-img"><img src="${t}" alt="${i}" onerror="this.src='/user-icon.jpg'" /></div>
@@ -67,7 +140,16 @@
         <custom-btn bLink="${p}" bText="See More"></custom-btn>
       </div>
     </div>
-    `}}customElements.define("search-result",v);class m extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+    `;
+  }
+}
+customElements.define('search-result', v);
+class m extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    this.innerHTML = `
       <select id="country-state" name="country-state">
         <option value="none">Please select a state</option>
         <option value="AL">Alabama</option>
@@ -137,7 +219,16 @@
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
       </select>
-    `}}customElements.define("state-selector",m);class b extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+    `;
+  }
+}
+customElements.define('state-selector', m);
+class b extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    this.innerHTML = `
       <svg viewBox="0 0 1386 822" id="us-map">
         <g id="AL">
           <title>Alabama</title>
@@ -489,16 +580,65 @@
           />
         </g>
       </svg>
-    `}}customElements.define("us-map",b);const f=(o,t)=>{var i=document.getElementById("us-map"),n=i.querySelectorAll("g");i.addEventListener("click",l=>{var L=l.target.parentNode;if(l.target.nodeName=="path"){for(let e=0;e<n.length;e++)n[e].classList.remove("active");L.classList.add("active");var a=L.id;console.log(a);var r=o(a);r.then(e=>{console.log(e),t(e)})}})},d="3656e5336f1239be4dcc23527aa19e6a",_=async o=>{const t=document.getElementById("result-grid__inner");t.innerHTML="",console.log(o);for(let l=0;l<4;l++){let L=o[l].cid;const a=`https://www.opensecrets.org/api/?method=candSummary&cid=${L}&cycle=2022&apikey=${d}&output=json`,e=(await(await fetch(a)).json()).response.summary["@attributes"],p=`https://www.opensecrets.org/api/?method=candContrib&cid=${L}&cycle=2022&apikey=${d}&output=json`,s=(await(await fetch(p)).json()).response.contributors.contributor,c=document.createElement("div");c.classList.add("result-grid__item");const M=e.cand_name.split(",");var i=M[1],n=M[0];const u=`https://cdn1.opensecrets.org/congress-members/photos/${e.cid}.jpg`;c.innerHTML=`
+    `;
+  }
+}
+customElements.define('us-map', b);
+const f = (o, t) => {
+    var i = document.getElementById('us-map'),
+      n = i.querySelectorAll('g');
+    i.addEventListener('click', (l) => {
+      var L = l.target.parentNode;
+      if (l.target.nodeName == 'path') {
+        for (let e = 0; e < n.length; e++) n[e].classList.remove('active');
+        L.classList.add('active');
+        var a = L.id;
+        console.log(a);
+        var r = o(a);
+        r.then((e) => {
+          console.log(e), t(e);
+        });
+      }
+    });
+  },
+  d = '3656e5336f1239be4dcc23527aa19e6a',
+  _ = async (o) => {
+    const t = document.getElementById('result-grid__inner');
+    (t.innerHTML = ''), console.log(o);
+    for (let l = 0; l < 4; l++) {
+      let L = o[l].cid;
+      const a = `https://www.opensecrets.org/api/?method=candSummary&cid=${L}&cycle=2022&apikey=${d}&output=json`,
+        e = (await (await fetch(a)).json()).response.summary['@attributes'],
+        p = `https://www.opensecrets.org/api/?method=candContrib&cid=${L}&cycle=2022&apikey=${d}&output=json`,
+        s = (await (await fetch(p)).json()).response.contributors.contributor,
+        c = document.createElement('div');
+      c.classList.add('result-grid__item');
+      const M = e.cand_name.split(',');
+      var i = M[1],
+        n = M[0];
+      const u = `https://cdn1.opensecrets.org/congress-members/photos/${e.cid}.jpg`;
+      (c.innerHTML = `
       <search-result
         result-img="${u}"
         result-name="${i} ${n}"
         result-position="${e.chamber}"
         result-state="${e.state}"
         result-party="${e.party}"
-        contrib1="${s[0]["@attributes"].org_name} ($${s[0]["@attributes"].total})"
-        contrib2="${s[1]["@attributes"].org_name} ($${s[1]["@attributes"].total})"
-        contrib3="${s[2]["@attributes"].org_name} ($${s[2]["@attributes"].total})"
+        contrib1="${s[0]['@attributes'].org_name} ($${s[0]['@attributes'].total})"
+        contrib2="${s[1]['@attributes'].org_name} ($${s[1]['@attributes'].total})"
+        contrib3="${s[2]['@attributes'].org_name} ($${s[2]['@attributes'].total})"
         result-link="https://www.opensecrets.org/members-of-congress/summary?cid=${e.cid}"
       ></search-result>
-    `,t.append(c)}},y="3656e5336f1239be4dcc23527aa19e6a",A=async o=>{let t=[];const i=`https://www.opensecrets.org/api/?method=getLegislators&id=${o}&apikey=${y}&output=json`,l=(await(await fetch(i)).json()).response.legislator;for(let L=0;L<l.length;L++)t[L]=l[L]["@attributes"];return console.log("Legislators",t),t};f(A,_);
+    `),
+        t.append(c);
+    }
+  },
+  y = '3656e5336f1239be4dcc23527aa19e6a',
+  A = async (o) => {
+    let t = [];
+    const i = `https://www.opensecrets.org/api/?method=getLegislators&id=${o}&apikey=${y}&output=json`,
+      l = (await (await fetch(i)).json()).response.legislator;
+    for (let L = 0; L < l.length; L++) t[L] = l[L]['@attributes'];
+    return console.log('Legislators', t), t;
+  };
+f(A, _);
