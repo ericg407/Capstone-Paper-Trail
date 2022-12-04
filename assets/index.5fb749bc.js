@@ -1,12 +1,146 @@
-import '/css/components/us-map.css';
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const l of document.querySelectorAll('link[rel="modulepreload"]'))i(l);new MutationObserver(l=>{for(const L of l)if(L.type==="childList")for(const a of L.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function o(l){const L={};return l.integrity&&(L.integrity=l.integrity),l.referrerpolicy&&(L.referrerPolicy=l.referrerpolicy),l.crossorigin==="use-credentials"?L.credentials="include":l.crossorigin==="anonymous"?L.credentials="omit":L.credentials="same-origin",L}function i(l){if(l.ep)return;l.ep=!0;const L=o(l);fetch(l.href,L)}})();class _ extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+      <footer id="footer-container">
+        <div class="footer-wrap">
+          <div class="footer-wrap__copyright">
+            <p>Copyright &copy 2022 Paper Trail</p>
+          </div>
+      
+          <div class="footer-wrap__btt">
+            <div class="footer-wrap__btt-btn">
+              <a href="#" rel="noopener noreferrer" class="page-btn">
+                <span class="footer-wrap__btt-btn-text">Back To Top</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    `}}customElements.define("custom-footer",_);class y extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+      <div id="nav-bar__container">
+        <div class="nav-bar__wrap">
+          <div class="nav-bar__logo">
+            <img src="/img/paper-trail-logo.png" alt="Capstone Project" id="logo" />
+          </div>
 
-class USMap extends HTMLElement {
-  constructor() {
-    super();
-  }
+          <div class="nav-bar">
+            <nav class="nav-bar__menu">
+              <ul class="menu-list">
+                <li class="menu-list__item"><a href="./#home">Home</a></li>
+                <li class="menu-list__item"><a href="./#about">About</a></li>
+                <li class="menu-list__item menu-list__btn">
+                  <a href="#" rel="noopener noreferrer" class="page-btn menu-list__btn-link">
+                    <span class="menu-list__btn-text">Go Vote!</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    `}}customElements.define("custom-header",y);class A extends HTMLElement{constructor(){super()}connectedCallback(){const e=this.getAttribute("bLink")||"#",o=this.getAttribute("bText");this.innerHTML=`
+      <div class="custom-btn">
+        <a href="${e}" target="_blank" rel="noopener noreferrer" class="page-btn custom-btn__link">
+          <span class="custom-btn__link-text">${o}</span>
+        </a>
+      </div>
+    `}}customElements.define("custom-btn",A);class N extends HTMLElement{constructor(){super()}connectedCallback(){const e=this.getAttribute("result-img")||"",o=this.getAttribute("result-name"),i=this.getAttribute("result-position"),l=this.getAttribute("result-state"),L=this.getAttribute("result-party"),a=this.getAttribute("result-contrib")||"0",s=this.getAttribute("result-link");this.innerHTML=`
+    <div class="search-result">
+      <div class="search-result__info">
+        <div class="search-result__info-img"><img src="${e}" alt="${o}" onerror="this.src='/user-icon.jpg'" /></div>
+        <div class="search-result__info-content">
+          <div class="search-result__info-name"><span>${o}</span></div>
+          <div class="search-result__info-position">Chamber: <span>${i}</span></div>
+          <div class="search-result__info-state">State: <span>${l}</span></div>
+          <div class="search-result__info-party">Party: <span>${L}</span></div>
+        </div>
+      </div>
 
-  connectedCallback() {
-    this.innerHTML = `
+      <div class="search-result__contents">
+        <div class="search-result__contribs">
+          <div class="search-result__contribs-title">
+            <span>Total Contributions Received</span>
+          </div>
+
+          <div class="search-result__contribs-content">
+            <span>${a}</span>
+          </div>
+        </div>
+
+        <div class="search-result__btn">
+          <custom-btn bLink="${s}" bText="See More"></custom-btn>
+        </div>
+      </div>
+    </div>
+    `}}customElements.define("search-result",N);class w extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+      <select id="country-state" name="country-state">
+        <option value="none">Please select a state</option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AS">American Samoa</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="UM-81">Baker Island</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="GU">Guam</option>
+        <option value="HI">Hawaii</option>
+        <option value="UM-84">Howland Island</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="UM-86">Jarvis Island</option>
+        <option value="UM-67">Johnston Atoll</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="UM-89">Kingman Reef</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="UM-71">Midway Atoll</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="UM-76">Navassa Island</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="MP">Northern Mariana Islands</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="UM-95">Palmyra Atoll</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="PR">Puerto Rico</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UM">United States Minor Outlying Islands</option>
+        <option value="VI">United States Virgin Islands</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="UM-79">Wake Island</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+      </select>
+    `}}customElements.define("state-selector",w);class I extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
       <svg viewBox="0 0 1386 822" id="us-map">
         <g id="AL">
           <title>Alabama</title>
@@ -358,65 +492,14 @@ class USMap extends HTMLElement {
           />
         </g>
       </svg>
-    `;
-  }
-}
-
-customElements.define('us-map', USMap);
-
-export const getState = (callback1, callback2) => {
-  const usMap = document.getElementById('us-map');
-  const allStates = usMap.querySelectorAll('g');
-
-  const sort = document.getElementById('result-grid__sort');
-
-  const grid = document.getElementById('result-grid__inner');
-  const loading = document.getElementById('result-grid__loading');
-
-  const clickState = () => {
-    setTimeout(() => {
-      usMap.style.pointerEvents = 'none';
-
-      sort.value = 'Sort';
-      sort.disabled = true;
-
-      grid.classList.remove('active');
-      grid.classList.add('inactive');
-
-      loading.classList.remove('inactive');
-      loading.classList.add('active');
-    }, 200);
-
-    setTimeout(() => {
-      usMap.style.pointerEvents = 'initial';
-
-      sort.disabled = false;
-
-      grid.classList.remove('inactive');
-      grid.classList.add('active');
-
-      loading.classList.remove('active');
-      loading.classList.add('inactive');
-    }, 8000);
-  };
-
-  usMap.addEventListener('click', (e) => {
-    clickState();
-
-    let state = e.target.parentNode;
-
-    if (e.target.nodeName == 'path') {
-      for (let i = 0; i < allStates.length; i++) {
-        allStates[i].classList.remove('active');
-      }
-
-      state.classList.add('active');
-      let stateAbbr = state.id;
-
-      let newArray = callback1(stateAbbr);
-      newArray.then((results) => {
-        callback2(results);
-      });
-    }
-  });
-};
+    `}}customElements.define("us-map",I);const T=(t,e)=>{const o=document.getElementById("us-map"),i=o.querySelectorAll("g"),l=document.getElementById("result-grid__sort"),L=document.getElementById("result-grid__inner"),a=document.getElementById("result-grid__loading"),s=()=>{setTimeout(()=>{o.style.pointerEvents="none",l.value="Sort",l.disabled=!0,L.classList.remove("active"),L.classList.add("inactive"),a.classList.remove("inactive"),a.classList.add("active")},200),setTimeout(()=>{o.style.pointerEvents="initial",l.disabled=!1,L.classList.remove("inactive"),L.classList.add("active"),a.classList.remove("active"),a.classList.add("inactive")},8e3)};o.addEventListener("click",n=>{s();let d=n.target.parentNode;if(n.target.nodeName=="path"){for(let r=0;r<i.length;r++)i[r].classList.remove("active");d.classList.add("active");let c=d.id;t(c).then(r=>{e(r)})}})},h="1b22f4617150dee0474bba7f87cf087b",k=async t=>{const e=document.getElementById("result-grid__inner");e.innerHTML="";for(let o=0;o<t.length;o++){let i=t[o].cid;const l=`https://www.opensecrets.org/api/?method=candSummary&cid=${i}&cycle=2022&apikey=${h}&output=json`,L=`https://www.opensecrets.org/api/?method=candContrib&cid=${i}&cycle=2022&apikey=${h}&output=json`;let a=await Promise.all([fetch(l),fetch(L)]),s=await Promise.all([a[0].json(),a[1].json()]),n=s[0].response.summary["@attributes"],d=s[1].response.contributors.contributor,c=()=>{let u=0;for(let M=0;M<d.length;M++){let f=Number(d[M]["@attributes"].total);u=u+f}return u};const p=document.createElement("li");p.classList.add("result-grid__item"),p.dataset.total=c();const z=n.cand_name.split(",");let v=z[1],m=z[0];const b=`https://cdn1.opensecrets.org/congress-members/photos/${n.cid}.jpg`;p.innerHTML=`
+      <search-result
+        result-img="${b}"
+        result-name="${v} ${m}"
+        result-position="${n.chamber}"
+        result-state="${n.state}"
+        result-party="${n.party}"
+        result-link="https://www.opensecrets.org/members-of-congress/summary?cid=${n.cid}"
+        result-contrib="${c().toLocaleString("en-US",{style:"currency",currency:"USD"})}"
+      ></search-result>
+    `,e.append(p)}},S="1b22f4617150dee0474bba7f87cf087b",C=async t=>{let e=[];const o=`https://www.opensecrets.org/api/?method=getLegislators&id=${t}&apikey=${S}&output=json`,l=(await(await fetch(o)).json()).response.legislator;for(let L=0;L<l.length;L++)e[L]=l[L]["@attributes"];return e},E=(t,e)=>Number(t.dataset.total)<Number(e.dataset.total)?1:Number(t.dataset.total)>Number(e.dataset.total)?-1:0,H=(t,e)=>Number(t.dataset.total)>Number(e.dataset.total)?1:Number(t.dataset.total)<Number(e.dataset.total)?-1:0,D=()=>{const t=document.querySelectorAll(".result-grid__item");Array.from(t).sort(E).forEach(i=>{document.querySelector("#result-grid__inner").appendChild(i)})},$=()=>{const t=document.querySelectorAll(".result-grid__item");Array.from(t).sort(H).forEach(i=>{document.querySelector("#result-grid__inner").appendChild(i)})};T(C,k);const g=document.getElementById("result-grid__sort");g.addEventListener("change",()=>{g.value=="High-To-Low"&&D(),g.value=="Low-To-High"&&$()});
