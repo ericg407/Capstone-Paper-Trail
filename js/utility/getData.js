@@ -4,7 +4,7 @@ export const getData = async (candArray) => {
   const resultGrid = document.getElementById('result-grid__inner');
   resultGrid.innerHTML = '';
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < candArray.length; i++) {
     let candCID = candArray[i].cid;
 
     const summaryURL = `https://www.opensecrets.org/api/?method=candSummary&cid=${candCID}&cycle=2022&apikey=${apiKey}&output=json`;

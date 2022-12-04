@@ -397,7 +397,7 @@ export const getState = (callback1, callback2) => {
 
       loading.classList.remove('active');
       loading.classList.add('inactive');
-    }, 8000);
+    }, 20000);
   };
 
   usMap.addEventListener('click', (e) => {
