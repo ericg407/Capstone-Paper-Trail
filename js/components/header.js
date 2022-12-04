@@ -10,7 +10,7 @@ class Header extends HTMLElement {
       <div id="nav-bar__container">
         <div class="nav-bar__wrap">
           <div class="nav-bar__logo">
-            <img src="../assets/img/paper-trail-logo.png" alt="Capstone Project" id="logo" />
+            <img src="/img/paper-trail-logo.png" alt="Capstone Project" id="logo" />
           </div>
 
           <div class="nav-bar">
